@@ -58,12 +58,7 @@
 #header .left .logo{float:left;margin-right:34px;}
 #header .left .logo a{}
 #header .left .logo img{width:205px;height:36px;display:block;}
-#header .left ul{float:left;}
-#header .left ul li{float:left;margin-right:34px;}
-#header .left ul li a{font:16px/40px "";color:#000;}
-#header .left ul li.first a{background:mediumvioletred;color:#fff;border-radius: 10px;padding:2px 4px;}
-#header .left ul li.second a{background:cornflowerblue;color:#fff;border-radius: 10px;padding:2px 4px;}
-#header .right{float:right;}
+#header h2{font:700 20px/2 "";float:left;}
 #header .right form{width:320px;height:30px;border-top-left-radius:20px;border-bottom-left-radius:20px;overflow: hidden;}
 #header .right form input{float:left;background:#f0f0f0;}
 #header .right form input.search{width:285px;height:30px;}
@@ -71,7 +66,7 @@
 
 
 /*活动通道*/
-#welfare{height:82px;padding-top:20px;box-sizing: border-box;margin-top:40px;background:#f9f9f9;}
+#welfare{height:82px;padding-top:20px;box-sizing: border-box;background:#f9f9f9;}
 #welfare ul{display: flex;justify-content: space-around;}
 #welfare ul li{}
 #welfare ul li a{}
@@ -110,6 +105,18 @@
 #footer .footer-c .copyright a{color:#A4A4A4;}
 #footer .footer-r{width:174px;height:24px;float:right;}
 
-td h4{font:24px/185px "";}
-td span{font:24px/185px "";}
-input{margin-top:50px;font:24px/2 "";}
+th{font:700 20px/2 "";}
+td{padding-top:20px;box-sizing: border-box;}
+td h4{font:20px/181px "";}
+td span{font:24px/181px "";color:#ff0000;}
+input{font:24px/2 "";margin-top:80px;}
+td.del{box-sizing:border-box;padding-top:80px;}
+td.del input{margin:0;font:20px/2 "";}
+
+/*占位*/
+.table{margin-bottom:0;}
+#zhanwei{height:500px;background:#f5f5f5}
+#kong{height:500px;background:#fff;box-sizing: border-box;padding-top:100px;}
+#kong div{width:100px;height:100px;background:#f4f4f4 url("../images/car_empty.png") no-repeat center;background-size:50px;border-radius:50%;margin:0 auto;}
+#kong span{display:block;font:14px/4 "";color:#7f7f7f;margin:0 auto;width:200px;text-align: center;}
+#kong a{color:#fff;background:#ff0000;border-radius:5px;display:block;width:100px;padding:15px 0;margin:0 auto;text-align: center;text-decoration: none;}

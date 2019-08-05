@@ -36,14 +36,10 @@
     // 顶部轮播图
     class BannerTop{
         constructor(){
-            // this.left = document.querySelector(".button .left");            //上一张按钮
-            // this.right = document.querySelector(".button .right");          // 下一张按钮
-
             this.index_all = document.querySelectorAll(".menu-c img");      // 所有图片
-            this.li = document.querySelectorAll("#menu .phone_list li");                // 小圆点
+            this.li = document.querySelectorAll("#menu .list li");                // 小圆点
 
             this.index = 0;
-
             this.listAction();
             this.btnActive();
         }
@@ -53,6 +49,8 @@
             let that = this;
             for(let i=0;i<this.li.length;i++){
                 this.li[i].addEventListener("click",function(){
+                    console.log($(this).index())
+                    console.log(that.index)
                     if($(this).index() > that.index){
                         that.listMove(1,$(this).index())
                     }

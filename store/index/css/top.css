@@ -19,7 +19,7 @@
 #top .top-main ul.show .jingcai li a{border:none;background-image:none;}
 #top .top-main ul.show .kehu{position:absolute;left:145px;top:40px;z-index:999;width:80px;background:#fff;border-radius: 15px;display:none;}
 #top .top-main ul.show .kehu li{text-align:center;}
-#top .top-main ul.show .kehu li a{border:none;background-image:none;border:none;}
+#top .top-main ul.show .kehu li a{border:none;background-image:none;}
 #top .top-main ul.show .daohang{position:absolute;left:-610px;top:40px;z-index:10000;width:893px;background:#fff;border-radius: 15px;display:none;}
 #top .top-main ul.show .daohang h2{}
 #top .top-main ul.show .daohang a{height:20px;float:left;}

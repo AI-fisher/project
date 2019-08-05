@@ -1,6 +1,6 @@
 /*推荐*/
 #recommend{height:1289px;position:relative;}
-#recommend .recommend-t{width:1200px;height:88px;position:absolute;top:-70px;left:0;border-radius:15px;background:#fff;border:1px solid #bdbdbd;box-shadow:0 2px 26px rgba(0,0,0,0.07);}
+#recommend .recommend-t{width:1200px;height:88px;position:absolute;top:-55px;left:0;border-radius:15px;background:#fff;border:1px solid #bdbdbd;box-shadow:0 2px 26px rgba(0,0,0,0.07);}
 #recommend .recommend-t .recommend-t-l{width:270px;height:52px;margin:17px 0 0 26px;border-right:1px solid #9b9b9b;padding-left:68px;box-sizing:border-box;background:url(https://res.vmallres.com/20190630/images/echannel/misc/img_not_logged_in.png) no-repeat left;background-size:52px;font:13px/16px "";float:left;}
 #recommend .recommend-t .recommend-t-l .login{color:#5a6268;margin-bottom:6px;}
 #recommend .recommend-t .recommend-t-l .login a{font:14px/16px "";color:#000;}

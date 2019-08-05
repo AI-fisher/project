@@ -3,7 +3,7 @@
     class shopList{
         constructor(){
             this.box = document.querySelector("#box");          // 最外框
-            this.url = "http://localhost/huawei/phone_list/data/phone_more.json";      // 商品数据接口
+            this.url = "http://localhost/store/phone_list/data/phone_more.json";      // 商品数据接口
             this.row = document.querySelector(".row");
             this.load();
             this.addEvent();
@@ -60,7 +60,7 @@
             }
             // 再设置
             setCookie("goods",JSON.stringify(this.goods),{
-                path:"/huawei"
+                path:"/store"
             });
         }
 
