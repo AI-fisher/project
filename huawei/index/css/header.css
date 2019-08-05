@@ -1,0 +1,16 @@
+/*头部*/
+#header{height:74px;padding:18px 0 15px 0;box-sizing:border-box;}
+#header .left{float:left;}
+#header .left .logo{float:left;margin-right:34px;}
+#header .left .logo a{}
+#header .left .logo img{width:205px;height:36px;display:block;}
+#header .left ul{float:left;}
+#header .left ul li{float:left;margin-right:34px;}
+#header .left ul li a{font:16px/40px "";color:#000;}
+#header .left ul li.first a{background:mediumvioletred;color:#fff;border-radius: 10px;padding:2px 4px;}
+#header .left ul li.second a{background:cornflowerblue;color:#fff;border-radius: 10px;padding:2px 4px;}
+#header .right{float:right;}
+#header .right form{width:320px;height:30px;border-top-left-radius:20px;border-bottom-left-radius:20px;overflow: hidden;}
+#header .right form input{float:left;background:#f0f0f0;}
+#header .right form input.search{width:285px;height:30px;}
+#header .right form input.submit{width:35px;height:30px;background:#f0f0f0 url("../images/search.png") no-repeat center;background-size:15px 15px;}

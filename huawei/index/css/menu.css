@@ -1,0 +1,19 @@
+/*广告栏——顶部*/
+#menu{height:400px;overflow:hidden;position:relative;}
+#menu .menu-l{}
+#menu .menu-c{height:400px}
+#menu .menu-c img{width:1349px;height:400px;position:absolute;left:1349px;top:0;}
+#menu .menu-c img:nth-child(1){left:0;}
+#menu .button{}
+#menu .button input{width:50px;height:50px;background:#dbdadf;position:absolute;top:125px;border-radius: 50%;font:700 25px/2 "";color:#9b9b9b}
+#menu .button input.left{left:500px;}
+#menu .button input.right{right:0;}
+#menu .list{position:absolute;bottom:80px;right:50px;}
+#menu .list li{float:left;margin-left:10px;width:15px;height:15px;border-radius:50%;border:2px solid #fff;background:none;}
+/*广告栏——中部*/
+#banner_c{margin-bottom:20px;}
+#banner_c img{display:block;width:1200px;border-radius:20px;}
+
+/*广告栏——底部*/
+#banner_b{}
+#banner_b img{display:block;width:1200px;border-radius:20px;}
