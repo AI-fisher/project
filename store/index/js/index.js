@@ -36,12 +36,16 @@
     // 顶部轮播图
     class BannerTop{
         constructor(){
+            this.box = document.querySelector(".menu-c");
             this.index_all = document.querySelectorAll(".menu-c img");      // 所有图片
             this.li = document.querySelectorAll("#menu .list li");                // 小圆点
+            this.moveTime = 300;        // 滚动一张持续时间
+            this.delayTime = 2000;
 
             this.index = 0;
             this.listAction();
             this.btnActive();
+            this.autoAction();
         }
 
         // 4.小圆点的点击切换对应图片的功能
@@ -72,6 +76,7 @@
             }
 
         }
+        // 根据计算好的索引，移动对应的图片
         listMove(type,iNow){
             // 谁走：this.index
             // 谁进来：iNow
@@ -85,11 +90,9 @@
             }).stop().animate({
                 left:0
             },this.moveTime)
-            // 上一步：end()
-            // 父级：parent()
         }
 
-
+        // 绑定左右按钮的点击事件
         btnActive(){
             // console.log(options.left)
             let $right = $("#menu").find(".right");
@@ -125,6 +128,20 @@
                 that.btnMove(1);
             })
         }
+        // 右按钮效果
+        rightClick(){
+            let $img = $("#menu").find("img");
+            // B2-2.计算索引
+            if(this.index == $img.length-1){
+                this.index = 0;
+                this.iPrev = $img.length-1;
+            }else{
+                this.index++;
+                this.iPrev = this.index - 1;
+            }
+            this.btnMove(1);
+        }
+        // 根据左右按钮计算的索引，移动对应的图片
         btnMove(type){
             let $img = $("#menu").find("img");
             // 要走的：this.iPrev
@@ -147,6 +164,32 @@
 
             this.li[this.index].style.backgroundColor = "red";
             this.li[this.index].style.color = "#fff";
+        }
+
+        // 自动播放
+        autoAction(){
+            var that = this;
+            // 通过计时器执行右按钮的事件，实现自动轮播
+            this.t = setInterval(() => {
+                this.rightClick()
+            }, this.delayTime);
+
+            // A2.给大框添加鼠标进入和离开事件，做停止和继续
+            this.box.addEventListener("mouseenter",function(){
+                clearInterval(that.t);
+            });
+            this.box.addEventListener("mouseleave",function(){
+                that.t = setInterval(() => {
+                    that.rightClick()
+                }, that.delayTime);
+            })
+            // that.hover(function(){
+            //     clearInterval(that.t)
+            // },function(){
+            //     that.t = setInterval(() => {
+            //         that.rightClick()
+            //     }, that.delayTime);
+            // })
         }
 }
 

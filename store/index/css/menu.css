@@ -1,7 +1,7 @@
 /*广告栏——顶部*/
 #menu{height:450px;overflow:hidden;position:relative;}
-#menu .menu-l{width:200px;height:390px;position:absolute;left:75px;top:5px;z-index:11000;background:#fff;border-radius:20px;overflow:hidden;}
-#menu .menu-l ul{background:#fff;width:200px;height:390px;box-sizing: border-box;padding:8px 20px;}
+#menu .menu-l{width:200px;height:390px;position:absolute;left:75px;top:5px;z-index:11000;background:#fdfcfb;border-radius:20px;overflow:hidden;}
+#menu .menu-l ul{background:#fdfcfb;width:200px;height:390px;box-sizing: border-box;padding:8px 20px;}
 #menu .menu-l ul li{height:65px;border-bottom:1px solid #a6a6a6;}
 #menu .menu-l ul li.last{border:0;}
 #menu .menu-l ul li .li-top{font:16px/2 "";}
@@ -10,8 +10,8 @@
 #menu .menu-c img{width:1349px;height:450px;position:absolute;left:1349px;top:0;}
 #menu .menu-c img:nth-child(1){left:0;}
 #menu .button{}
-#menu .button input{width:50px;height:50px;background:#dbdadf;position:absolute;top:160px;border-radius: 50%;font:700 25px/2 "";color:#9b9b9b}
-#menu .button input.left{left:500px;}
+#menu .button input{width:60px;height:60px;background:#dbdadf;position:absolute;top:180px;border-radius: 50%;font:400 35px/60px "";color:#000;opacity: 0.3;}
+#menu .button input.left{left:300px;}
 #menu .button input.right{right:0;}
 #menu .list{position:absolute;bottom:80px;right:50px;}
 #menu .list li{float:left;margin-left:10px;width:15px;height:15px;border-radius:50%;border:2px solid #fff;background:none;}
