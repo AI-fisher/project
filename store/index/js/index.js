@@ -48,7 +48,7 @@
             this.autoAction();
         }
 
-        // 4.小圆点的点击切换对应图片的功能
+        // 小圆点
         listAction(){
             let that = this;
             for(let i=0;i<this.li.length;i++){
@@ -64,7 +64,7 @@
 
                     // 点击之后，点击的就变成了当前
                     that.index = $(this).index();
-                    // 设置list的li当前项，取消所有，给点击的设置
+
                     for(let i=0;i<that.li.length;i++){
                         that.li[i].style.backgroundColor = "";
                         that.li[i].style.color = "";
@@ -78,8 +78,6 @@
         }
         // 根据计算好的索引，移动对应的图片
         listMove(type,iNow){
-            // 谁走：this.index
-            // 谁进来：iNow
             let $img = $("#menu").find("img");
             $img.eq(this.index).css({
                 left:0
@@ -102,7 +100,6 @@
 
             let that = this;
 
-            // 绑定点击事件
             $left.on("click",function(){
                 let $img = $("#menu").find("img");
                 // 计算索引
@@ -141,7 +138,7 @@
             }
             this.btnMove(1);
         }
-        // 根据左右按钮计算的索引，移动对应的图片
+        // 移动对应的图片
         btnMove(type){
             let $img = $("#menu").find("img");
             // 要走的：this.iPrev
@@ -156,7 +153,6 @@
                 left:0
             },this.moveTime);
 
-            // 设置list的li当前项，取消所有，给点击的设置
             for(let i=0;i<this.li.length;i++){
                 this.li[i].style.backgroundColor = "";
                 this.li[i].style.color = "";
@@ -169,12 +165,10 @@
         // 自动播放
         autoAction(){
             var that = this;
-            // 通过计时器执行右按钮的事件，实现自动轮播
             this.t = setInterval(() => {
                 this.rightClick()
             }, this.delayTime);
 
-            // A2.给大框添加鼠标进入和离开事件，做停止和继续
             this.box.addEventListener("mouseenter",function(){
                 clearInterval(that.t);
             });
@@ -183,19 +177,43 @@
                     that.rightClick()
                 }, that.delayTime);
             })
-            // that.hover(function(){
-            //     clearInterval(that.t)
-            // },function(){
-            //     that.t = setInterval(() => {
-            //         that.rightClick()
-            //     }, that.delayTime);
-            // })
         }
 }
 
+    class Menu{
+        constructor(){
+            this.amenuLi = document.querySelectorAll(".menu-l ul li");
+            this.adiv = document.querySelectorAll(".menu-l-hidden div");
+
+            this.addEvent();
+        }
+
+        addEvent(){
+            for(let i=0;i<this.amenuLi.length;i++){
+                this.amenuLi[i].index = i;
+                this.amenuLi[i].addEventListener("mouseenter",()=>{
+                    for(let j=0;j<this.amenuLi.length;j++){
+                       this.amenuLi[j].style.backgroundColor = "#fdfcfb";
+                       this.adiv[j].style.display = "none";
+
+                    }
+                    this.amenuLi[i].style.backgroundColor = "#fff";
+                    this.adiv[this.amenuLi[i].index].style.display = "block";
+                })
+
+                this.amenuLi[i].addEventListener("mouseleave",()=>{
+                    for(let j=0;j<this.amenuLi.length;j++){
+                        this.amenuLi[j].style.backgroundColor = "#fdfcfb";
+                        this.adiv[j].style.display = "none";
+                    }
+                })
+            }
+        }
+    }
+
     new Top;
     new BannerTop;
-
+    new Menu;
 
 
 
