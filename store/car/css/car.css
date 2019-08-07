@@ -112,6 +112,7 @@ td span{font:24px/181px "";color:#ff0000;}
 input{font:24px/2 "";margin-top:80px;}
 td.del{box-sizing:border-box;padding-top:80px;}
 td.del input{margin:0;font:20px/2 "";}
+.tbody{height:500px;}
 
 /*占位*/
 .table{margin-bottom:0;}

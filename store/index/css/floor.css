@@ -1,0 +1,5 @@
+/*楼层*/
+#floor{position:absolute;left:0;top:200px;}
+#floor ul{}
+#floor ul li{background:#9b9b9b;}
+#floor ul li a{color:#fff;}

@@ -1,4 +1,5 @@
 ;(function(){
+    // 放大镜
     class Zoom{
         constructor(){
             this.sBox = document.querySelector(".detail-l-s");
@@ -70,6 +71,8 @@
             this.span.style.backgroundPosition = -l + "px " + -t +"px";
         }
     }
+
+
 
     new Zoom;
 

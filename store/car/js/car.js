@@ -15,13 +15,15 @@
             var that = this;
             this.tbody.addEventListener("click",function(eve){
                 if(eve.target.className == "del"){
-                    console.log(1);
+
                     that.id = eve.target.parentNode.getAttribute("index");
                     eve.target.parentNode.remove();
                     that.changeCookie(function(i){
-                        that.goods.splice(i,1);
-                        if(that.goods == []){
-                            removeCookie("goods")
+
+                        if(that.goods.length == 0){
+                            removeCookie("goods");
+                        }else{
+                            that.goods.splice(i,1);
                         }
                     });
 
@@ -62,6 +64,7 @@
                 that.res = JSON.parse(res);
                 that.carGetCookie()
             })
+
         }
         carGetCookie(){
             this.goods = getCookie("goods") ? JSON.parse(getCookie("goods")) : [];
@@ -89,5 +92,39 @@
         }
     }
 
+    // 顶部效果
+    class Top{
+        constructor(){
+            this.showA = document.querySelectorAll("#top .show>li:not(.more) a");  // 顶部所有显示项
+            this.hiddenA = document.querySelectorAll("#top .show .more");          // 顶部所有隐藏项
+            this.color();
+            this.hiddenShow();
+        }
+        // 字体颜色
+        color(){
+            for(let i=0;i<this.showA.length;i++){
+                this.showA[i].addEventListener("mouseenter",()=>{
+                    this.showA[i].style.color = "#ca151d";
+                });
+                this.showA[i].addEventListener("mouseleave",()=>{
+                    this.showA[i].style.color = "";
+                });
+
+            }
+        }
+        // 显示隐藏
+        hiddenShow(){
+            for(let i=0;i<this.hiddenA.length;i++){
+                this.hiddenA[i].previousElementSibling.addEventListener("mouseenter",()=>{
+                    this.hiddenA[i].style.display = "block";
+                });
+                this.hiddenA[i].previousElementSibling.addEventListener("mouseleave",()=>{
+                    this.hiddenA[i].style.display = "none";
+                });
+            }
+        }
+    }
+
+    new Top;
     new Car;
 })();
