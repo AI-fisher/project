@@ -15,7 +15,9 @@
 #center .center-r-t a.first{color:#ff0000;margin-left:30px;}
 #center .center-r-t a.last{border:none;}
 /*默认*/
-#center .center-r-c{height:260px;display:block;}
+#center .center-r-c{height:260px;display:block;position: relative;}
+#center .center-r-c span.username{position:absolute;left:30px;top:20px;color:rgb(204, 204, 204)}
+#center .center-r-c span.password{position:absolute;left:30px;top:70px;color:rgb(204, 204, 204)}
 #center .center-r-c input{border:none;width:328px;height:46px;display:block;margin:0 auto;border-bottom:1px solid #9b9b9b;color:#9b9b9b;}
 #center .center-r-c input#username{margin-top:15px;}
 #center .center-r-c input#password{}

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/service.css"/>
     <link rel="stylesheet" href="css/welfare.css"/>
     <link rel="stylesheet" href="css/footer.css"/>
-<!--    <link rel="stylesheet" href="css/floor.css"/>-->
+    <link rel="stylesheet" href="css/floor.css"/>
 </head>
 <body>
 <!--顶部-->
@@ -496,7 +496,7 @@
     </div>
     <div class="recommend-list">
         <div class="recommend-list-t">
-            <h2 id="rxdp">热销单品</h2>
+            <h2 id="rxdp" class="floor_position">热销单品</h2>
             <div class="hot">
                 <div class="large">
                     <a href="#">
@@ -572,7 +572,7 @@
             </div>
         </div>
         <div class="recommend-list-b">
-            <h2>精品推荐</h2>
+            <h2 class="jptj" class="floor_position">精品推荐</h2>
             <ul>
                 <li>
                     <a href="#">
@@ -642,7 +642,7 @@
     <!--手机-->
     <div class="phone">
         <div class="title">
-            <h2>手机</h2>
+            <h2  id="sj" class="floor_position">手机</h2>
             <ul class="nav">
                 <li><a href="#">荣耀</a></li>
                 <li><a href="#">HUAWEI P系列</a></li>
@@ -778,7 +778,7 @@
     <!--笔记本-->
     <div class="laptop">
         <div class="title">
-            <h2>笔记本电脑</h2>
+            <h2 id="bjbdn" class="floor_position">笔记本电脑</h2>
             <ul class="nav">
                 <li><a href="#">荣耀</a></li>
                 <li><a href="#">HUAWEI P系列</a></li>
@@ -874,7 +874,7 @@
     <!--平板-->
     <div class="pad">
         <div class="title">
-            <h2>精品平板</h2>
+            <h2 id="jppb" class="floor_position">精品平板</h2>
             <ul class="nav">
                 <li><a href="#">荣耀</a></li>
                 <li><a href="#">HUAWEI P系列</a></li>
@@ -973,7 +973,7 @@
     <!--智能穿戴-->
     <div class="ai-t">
         <div class="title">
-            <h2>智能穿戴</h2>
+            <h2 id="zncd" class="floor_position">智能穿戴</h2>
             <ul class="nav">
                 <li><a href="#">荣耀</a></li>
                 <li><a href="#">HUAWEI P系列</a></li>
@@ -1129,7 +1129,7 @@
     <!--智能家居-->
     <div class="ai-jia">
         <div class="title">
-            <h2>智能家居</h2>
+            <h2 id="znjj" class="floor_position">智能家居</h2>
             <ul class="nav">
                 <li><a href="#">荣耀</a></li>
                 <li><a href="#">HUAWEI P系列</a></li>
@@ -1285,7 +1285,7 @@
     <!--热销配件-->
     <div class="peijian">
         <div class="title">
-            <h2>热销配件</h2>
+            <h2 id="rxpj" class="floor_position">热销配件</h2>
             <ul class="nav">
                 <li><a href="#">荣耀</a></li>
                 <li><a href="#">HUAWEI P系列</a></li>
@@ -1441,7 +1441,7 @@
     <!--生态精品-->
     <div class="jingpin">
         <div class="title">
-            <h2>生态精品</h2>
+            <h2 id="stjp" class="floor_position">生态精品</h2>
             <ul class="nav">
                 <li><a href="#">荣耀</a></li>
                 <li><a href="#">HUAWEI P系列</a></li>
@@ -1724,20 +1724,20 @@
     </div>
 </div>
 
-<!--<div id="floor">-->
-<!--    <ul>-->
-<!--        <li><a href="##">热销单品</a></li>-->
-<!--        <li><a href="##">精品推荐</a></li>-->
-<!--        <li><a href="##">手机</a></li>-->
-<!--        <li><a href="##">笔记本电脑</a></li>-->
-<!--        <li><a href="##"></a></li>-->
-<!--        <li><a href="##">智能穿戴</a></li>-->
-<!--        <li><a href="##">智能家居</a></li>-->
-<!--        <li><a href="##">热销配件</a></li>-->
-<!--        <li><a href="##">生态精品</a></li>-->
-<!--        <li><a href="##">精选配件</a></li>-->
-<!--    </ul>-->
-<!--</div>-->
+<!--楼层-->
+<div id="floor">
+    <ul>
+        <li class="active"><a href="##">热销</a></li>
+        <li><a href="##">推荐</a></li>
+        <li><a href="##">手机</a></li>
+        <li><a href="##">电脑</a></li>
+        <li><a href="##">平板</a></li>
+        <li><a href="##">穿戴</a></li>
+        <li><a href="##">家居</a></li>
+        <li><a href="##">配件</a></li>
+        <li class="last"><a href="##">生态</a></li>
+    </ul>
+</div>
 </body>
 
 <script type="text/javascript" src="../public/jquery.1.12.4.js"></script>

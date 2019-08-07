@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>注册</title>
+    <link rel="stylesheet" href="../public/bootstrap.css"/>
     <link rel="stylesheet" href="css/register.css"/>
 </head>
 <body>
     <div id="header">
         <div class="margin">
-            <a href="##"><img src="images/banner.png"/></a>
+            <a href="../index/index.html"><img src="images/banner.png"/></a>
             <i>|</i>
             <span>华为商城</span>
         </div>
@@ -24,6 +25,8 @@
                     <i><img src="images/email.png"/></i>
                     <span>电子邮箱</span>
                 </a>
+                <!--中间信息提示框-->
+                <div id="tishi"></div>
                 <div class="main-t-r">
                     <span>已有华为账号</span>
                     <a href="../login/login.html">登录</a>
@@ -34,43 +37,103 @@
                     <form id="phone">
                         <div class="country row">
                             <div>国 家 / 地 区</div>
-                            <input type="input" value="中国"/>
+                            <select>
+                                <option>中国</option>
+                                <option>美国</option>
+                                <option>日本</option>
+                                <option>韩国</option>
+                                <option>巴基斯坦</option>
+                                <option>坦桑尼亚</option>
+                            </select>
                         </div>
                         <div class="phone row">
                             <div>+86（中国）</div>
-                            <input type="input" value="请输入手机号"/>
+                            <input type="text" value="请输入手机号"/>
                         </div>
-                        <div class="yanzheng row">
-                            <input type="input" value="点击按钮进行验证" class="long" disabled/>
+                        <div class="yanzheng row" id="yanzheng1">
+                            <div class="long btn-primary input-group-text">点击发送验证码</div>
                         </div>
                         <div class="yanzhengma row">
                             <div>短 信 验 证 码</div>
-                            <input type="input" value="请输入短信验证码"/>
+                            <input type="text" value="请输入短信验证码"/>
                         </div>
                         <div class="password row">
                             <div>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</div>
-                            <input type="input" value="请输入密码"/>
+                            <input type="text" value="请输入密码"/>
                         </div>
                         <div class="repassword row">
                             <div>确 认 密 码</div>
-                            <input type="input" value="请再次输入密码"/>
+                            <input type="text" value="请再次输入密码"/>
                         </div>
-                        <div class="shengti row">
+                        <div class="shengri row">
                             <div>出 生 日 期</div>
-                            <input type="input" value="中国"/>
+                            <input type="text"/>
+                            <div class="year">
+                                <select>
+                                    <option>1996</option>
+                                    <option>1997</option>
+                                    <option>1998</option>
+                                    <option>1999</option>
+                                    <option>2000</option>
+                                    <option>2001</option>
+                                    <option>2002</option>
+                                    <option>2003</option>
+                                    <option>2004</option>
+                                    <option>2005</option>
+                                    <option>2006</option>
+                                    <option>2007</option>
+                                    <option>2008</option>
+                                    <option>2009</option>
+                                    <option>2010</option>
+                                </select>
+                            </div>
+                            <div class="month">
+                                <select>
+                                    <option>01</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                    <option>04</option>
+                                    <option>05</option>
+                                    <option>06</option>
+                                    <option>07</option>
+                                    <option>08</option>
+                                    <option>09</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                            </div>
+                            <div class="day">
+                                <select>
+                                    <option>01</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                    <option>04</option>
+                                    <option>05</option>
+                                    <option>06</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
                         </div>
                     </form>
                     <form id="email">
                         <div class="country row">
                             <div>国 家 / 地 区</div>
-                            <input type="input" value="中国"/>
+                            <select>
+                                <option>中国</option>
+                                <option>美国</option>
+                                <option>日本</option>
+                                <option>韩国</option>
+                                <option>巴基斯坦</option>
+                                <option>坦桑尼亚</option>
+                            </select>
                         </div>
                         <div class="yanzheng row">
                             <div>邮 件 地 址</div>
-                            <input type="input" value="中国"/>
+                            <input type="text" value="中国"/>
                         </div>
-                        <div class="yanzhengma row">
-                            <input type="input" value="点击按钮进行验证" class="long" disabled/>
+                        <div class="yanzhengma row" id="yanzheng2">
+                            <div class="long btn-primary input-group-text">点击发送验证码</div>
                         </div>
                         <div class="yanzhengma row">
                             <div>短 信 验 证 码</div>
@@ -86,15 +149,61 @@
                         </div>
                         <div class="phone row">
                             <div>+86（中国）</div>
-                            <input type="input" value="请输入手机号"/>
+                            <input type="text" value="请输入手机号"/>
                         </div>
                         <div class="yanzhengma row">
                             <div>短 信 验 证 码</div>
                             <input type="input" value="请输入短信验证码"/>
                         </div>
-                        <div class="shengti row">
+                        <div class="shengri row">
                             <div>出 生 日 期</div>
-                            <input type="input" value="中国"/>
+                            <input type="text"/>
+                            <div class="year">
+                                <select>
+                                    <option>1996</option>
+                                    <option>1997</option>
+                                    <option>1998</option>
+                                    <option>1999</option>
+                                    <option>2000</option>
+                                    <option>2001</option>
+                                    <option>2002</option>
+                                    <option>2003</option>
+                                    <option>2004</option>
+                                    <option>2005</option>
+                                    <option>2006</option>
+                                    <option>2007</option>
+                                    <option>2008</option>
+                                    <option>2009</option>
+                                    <option>2010</option>
+                                </select>
+                            </div>
+                            <div class="month">
+                                <select>
+                                    <option>01</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                    <option>04</option>
+                                    <option>05</option>
+                                    <option>06</option>
+                                    <option>07</option>
+                                    <option>08</option>
+                                    <option>09</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                            </div>
+                            <div class="day">
+                                <select>
+                                    <option>01</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                    <option>04</option>
+                                    <option>05</option>
+                                    <option>06</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -117,5 +226,7 @@
     </div>
 </body>
 
-<script type="text/javascript" src="js/register.js"></script>
+
+<script src="libs/require.js" type="text/javascript"></script>
+<script src="js/register.js" type="text/javascript"></script>
 </html>

@@ -207,8 +207,6 @@
             for(let i=0;i<this.amenuLi.length;i++){
                 this.amenuLi[i].index = i;
                 this.amenuLi[i].addEventListener("mouseenter",()=>{
-                // console.log(this.amenuLi)
-                // console.log(this.adiv)
                     for(let j=0;j<this.amenuLi.length;j++){
                        this.amenuLi[j].style.backgroundColor = "#fdfcfb";
                        this.adiv[j].style.display = "none";
@@ -228,41 +226,68 @@
         }
     }
 
-    // // 楼层
-    // class Floor{
-    //     constructor(){
-    //         this.floor = document.getElementById("floor");
-    //         this.rxdp = document.getElementById("rxdp");
-    //
-    //         this.rxdp_top = this.rxdp.offsetTop;
-    //         this.rxdp_top_1 = this.rxdp.clientTop;
-    //         this.rxdp_top_2 = this.rxdp.pageTop;
-    //         // console.log(this.rxdp_top);
-    //         // console.log(this.rxdp_top_1);
-    //         // console.log(this.rxdp_top_2);
-    //
-    //         this.addEvent();
-    //     }
-    //
-    //     addEvent(){
-    //         onscroll = ()=>{
-    //             // 获取页面滚动的距离
-    //             var scrollT = document.documentElement.scrollTop;
-    //             // 将滚动的距离和初始top加起来，再设置回去
-    //             this.floor.style.top = 200 + scrollT + "px";
-    //         }
-    //
-    //         this.rxdp.addEventListener("click",function(){
-    //
-    //         })
-    //
-    //     }
+
+
+
+
+    // var obox = document.querySelector(".box");
+    // // obox.style
+    // onscroll = function(){
+    //     // 获取页面滚动的距离
+    //     var scrollT = document.documentElement.scrollTop;
+    //     // 将滚动的距离和初始top加起来，再设置回去
+    //     obox.style.top = 200 + scrollT + "px";
     // }
+
+    // 楼层
+    class Floor{
+        constructor(){
+            this.floor = document.getElementById("floor");
+            this.ceng = document.querySelectorAll("#floor ul li");
+            this.floor_position = document.querySelectorAll(".floor_position");
+            this.top = [];
+            this.rxdp = document.getElementById("rxdp");
+            console.log(this.ceng);
+            console.log(this.floor_position)
+            this.addEvent();
+        }
+
+        addEvent(){
+            onscroll = ()=>{
+                if(document.documentElement.scrollTop >= this.rxdp.offsetTop + 400){
+                    this.scrollT = document.documentElement.scrollTop;
+                    this.floor.style.top = 200 + this.scrollT + "px";
+                }
+            };
+            this.top[0] = 840;
+            this.top[1] = 1500;
+            for(let i=1;i<this.floor_position.length;i++){
+                this.top[i+1] = this.floor_position[i].offsetTop;
+            }
+
+            for(let i=0;i<this.ceng.length;i++){
+                this.ceng[i].index = i;
+                this.ceng[i].addEventListener("click",()=>{
+                    for(let j=0;j<this.ceng.length;j++){
+                        this.ceng[j].className = "";
+                    }
+                    this.ceng[i].className = "active";
+                    document.documentElement.scrollTop = this.top[this.ceng[i].index];
+
+
+                })
+
+
+            }
+
+
+        }
+    }
 
     new Top;
     new BannerTop;
     new Menu;
-    // new Floor;
+    new Floor;
 
 
 })();

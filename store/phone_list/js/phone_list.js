@@ -81,7 +81,7 @@
                             <img src="${this.res[i].url}" class="w-75"/>
                             <h6>${this.res[i].name}</h6>
                             <span class="btn-block">${this.res[i].price}</span>
-                            <button type="button" class="btn btn-sm btn-info">添加购物车</button>
+                            <button type="button" class="btn btn-lg btn-info">添加购物车</button>
                         </div>`
             }
             this.row.innerHTML = str;
