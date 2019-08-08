@@ -31,6 +31,8 @@
 #center .main .main-b .main-b-c .shengri .year{position:absolute;left:120px;width:100px;border:none;}
 #center .main .main-b .main-b-c .shengri .month{position:absolute;left:220px;width:100px;border:none;}
 #center .main .main-b .main-b-c .shengri .day{position:absolute;left:320px;width:100px;border:none;}
+#zhuce{width:200px;height:40px;background:#B40707;border-radius:10px;margin:30px 0 0 80px;font:16px/40px "";text-align: center;color:#fff;}
+#msg{width:250px;height:40px;border-radius:10px;margin:5px 0 0 60px;font:700 16px/40px "";text-align: center;color:#FF0000;}
 
 /*-------------------*/
 #center .main .main-b .main-b-c .country{overflow: hidden;}

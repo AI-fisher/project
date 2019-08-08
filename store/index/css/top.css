@@ -5,6 +5,10 @@
 #top .top-main .top-main-r{float:right;}
 #top .top-main ul.show{position:relative;}
 #top .top-main ul.show li{float:left;}
+#top .top-main ul.show li:nth-child(1) .not-login{display: block;}
+#top .top-main ul.show li:nth-child(1) .login-success{display:none;}
+#top .top-main ul.show li:nth-child(1) .login-success span{font:12px/3 ""; color:#a4a4a4;}
+#top .top-main ul.show li:nth-child(1) .login-success a{border-left:none;}
 /*#top .top-main ul.show li:hover a{color:#ca151d;}*/
 #top .top-main ul.show li a{font:12px/3 ""; color:#a4a4a4;padding:0 8px;border-left:1px solid #9b9b9b;}
 #top .top-main ul.show li a.first{border-left:0;padding-left:0;}

@@ -52,9 +52,9 @@ define(function(){
     function Tabs(){
         let aform = document.querySelectorAll("form");
         let aa = document.querySelectorAll(".change");
-        let ainput = document.querySelectorAll("input");
-        let mainBC = document.querySelector(".main-b-c");
-
+        let mainBC = document.querySelector(".main-b-c");           //大框
+        let input = document.querySelectorAll(".cancel");           // 所有输入框
+        // console.log(input);
 
         for(let i=0;i<aa.length;i++){
             aa[i].index = i;
@@ -71,6 +71,18 @@ define(function(){
                 // this.value = e.target.value;
                 if(e.target.nodeName == "INPUT"){
                     e.target.value = "";
+                }
+            });
+
+        }
+
+        for(let i=0;i<input.length;i++){
+            input[i].addEventListener("blur",()=>{
+                switch(i){
+                    case 0:input[i].value = "请输入手机号";break;
+                    case 1:input[i].value = "请输入短信验证码";break;
+                    case 2:input[i].value = "请输入密码";break;
+                    case 3:input[i].value = "请再次输入密码";break;
                 }
             })
         }

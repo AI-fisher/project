@@ -16,8 +16,8 @@
 #center .center-r-t a.last{border:none;}
 /*默认*/
 #center .center-r-c{height:260px;display:block;position: relative;}
-#center .center-r-c span.username{position:absolute;left:30px;top:20px;color:rgb(204, 204, 204)}
-#center .center-r-c span.password{position:absolute;left:30px;top:70px;color:rgb(204, 204, 204)}
+#center .center-r-c span.username{position:absolute;left:30px;top:20px;color:rgb(204, 204, 204);}
+#center .center-r-c span.password{position:absolute;left:30px;top:70px;color:rgb(204, 204, 204);}
 #center .center-r-c input{border:none;width:328px;height:46px;display:block;margin:0 auto;border-bottom:1px solid #9b9b9b;color:#9b9b9b;}
 #center .center-r-c input#username{margin-top:15px;}
 #center .center-r-c input#password{}
@@ -28,8 +28,10 @@
 #center .center-r-c .remenber span{float:left;margin:8px 0 0 10px;font:12px/2 "";}
 #center .center-r-c .remenber .more{float:right;width:25px;font-size:12px;}
 #center .center-r-c .unremenber{height:260px;}
+#center .center-r-c .unremenber .box{height:50px;}
 #center .center-r-c .unremenber a{float:left;width:50px;font-size:12px;padding:0 10px;height:20px;}
-#center .center-r-c .unremenber a:nth-child(1){margin-left:100px;border-right:1px solid #9b9b9b;}
+#center .center-r-c .unremenber a:nth-child(1){margin-left:120px;border-right:1px solid #9b9b9b;}
+#msg{width:250px;height:40px;border-radius:10px;margin:5px 0 0 70px;font:700 16px/40px "";text-align: center;color:#FF0000;}
 /*隐藏*/
 #center .center-r2-c{height:260px;display:none;}
 #center .center-r2-c .erweima{width:150px;height:150px;display:block;margin:40px auto;}
