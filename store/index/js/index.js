@@ -1,7 +1,11 @@
 ;(function(){
     "use strict";
 
-    // 顶部效果
+    /**
+     * 顶部效果
+     * 1.超链接文本进入离开触发变色效果
+     * 2.超链接相应的拓展区域进入离开触发显示/隐藏效果
+     */
     class Top{
         constructor(){
             this.showA = document.querySelectorAll("#top .show>li:not(.more) a");  // 顶部所有显示项
@@ -9,7 +13,7 @@
             this.color();
             this.hiddenShow();
         }
-        // 字体颜色
+        // 顶部超链接划过效果——文本变色
         color(){
             for(let i=0;i<this.showA.length;i++){
                 this.showA[i].addEventListener("mouseenter",()=>{
@@ -21,7 +25,7 @@
 
             }
         }
-        // 显示隐藏
+        // 顶部超链接划过效果——区域显示隐藏
         hiddenShow(){
             for(let i=0;i<this.hiddenA.length;i++){
                 this.hiddenA[i].previousElementSibling.addEventListener("mouseenter",()=>{
@@ -34,26 +38,28 @@
         }
     }
 
-    // 顶部轮播图
+    /**
+     * 菜单区轮播图效果
+     * 1.左右按钮点击触发切换图片（上/下张图片）效果
+     * 2.小圆点列表点击触发切换图片（选定的图片）效果
+     * 3.自动播放（模拟右按钮点击效果）
+     */
     class BannerTop{
         constructor(){
-            // this.left = document.querySelector(".button .left");            //上一张按钮
-            // this.right = document.querySelector(".button .right");          // 下一张按钮
-
             this.index_all = document.querySelectorAll(".menu-c img");      // 所有图片
             this.box = document.querySelector(".menu-c");
             this.li = document.querySelectorAll("#menu .list li");                // 小圆点
             this.index = 0;
             this.delayTime = 2000;
-            // moveTime:1000                           //可选，默认300
             this.moveTime = 300;
-            this.listAction();
-            this.btnActive();
+
+            this.addEvent();
             this.autoAction();
         }
 
-        // 4.小圆点的点击切换对应图片的功能
-        listAction(){
+        // 绑定事件
+        addEvent(){
+            // 小圆点的点击事件
             let that = this;
             for(let i=0;i<this.li.length;i++){
                 this.li[i].addEventListener("click",function(){
@@ -77,35 +83,10 @@
                 })
             }
 
-        }
-        listMove(type,iNow){
-            // 谁走：this.index
-            // 谁进来：iNow
-            let $img = $(".menu-c").find("img");
-            $img.eq(this.index).css({
-                left:0
-            }).stop().animate({
-                left:-$img.eq(0).width() * type
-            },this.moveTime).end().eq(iNow).css({
-                left:$img.eq(0).width() * type
-            }).stop().animate({
-                left:0
-            },this.moveTime)
-            // 上一步：end()
-            // 父级：parent()
-        }
-
-
-        btnActive(){
-            // console.log(options.left)
+            // 左右按钮点击事件
             let $right = $("#menu").find(".right");
             let $left = $("#menu").find(".left");
 
-            if(!($left != undefined && $left.length > 0 && $right != undefined && $right.length > 0)) return;
-
-            let that = this;
-
-            // 绑定点击事件
             $left.on("click",function(){
                 let $img = $(".menu-c").find("img");
                 // 计算索引
@@ -131,6 +112,24 @@
                 that.btnMove(1);
             })
         }
+
+        // 圆点点击的图片切换效果
+        listMove(type,iNow){
+            // 谁走：this.index
+            // 谁进来：iNow
+            let $img = $(".menu-c").find("img");
+            $img.eq(this.index).css({
+                left:0
+            }).stop().animate({
+                left:-$img.eq(0).width() * type
+            },this.moveTime).end().eq(iNow).css({
+                left:$img.eq(0).width() * type
+            }).stop().animate({
+                left:0
+            },this.moveTime)
+        }
+
+        // 圆点点击的图片切换效果
         btnMove(type){
             let $img = $(".menu-c").find("img");
             // 要走的：this.iPrev
@@ -153,24 +152,10 @@
             this.li[this.index].style.backgroundColor = "red";
             this.li[this.index].style.color = "#fff";
         }
-        // 右按钮效果
-        rightClick(){
-            let $img = $(".menu-c").find("img");
-            // B2-2.计算索引
-            if(this.index == $img.length-1){
-                this.index = 0;
-                this.iPrev = $img.length-1;
-            }else{
-                this.index++;
-                this.iPrev = this.index - 1;
-            }
-            this.btnMove(1);
-        }
 
-
-        // // 自动播放
+        // 自动播放效果
         autoAction(){
-            var that = this;
+            let that = this;
             // 通过计时器执行右按钮的事件，实现自动轮播
             this.t = setInterval(() => {
                 this.rightClick()
@@ -185,17 +170,26 @@
                     that.rightClick()
                 }, that.delayTime);
             })
-            // that.hover(function(){
-            //     clearInterval(that.t)
-            // },function(){
-            //     that.t = setInterval(() => {
-            //         that.rightClick()
-            //     }, that.delayTime);
-            // })
+        }
+        // 自动播放实现的右按钮效果
+        rightClick(){
+            let $img = $(".menu-c").find("img");
+            // B2-2.计算索引
+            if(this.index == $img.length-1){
+                this.index = 0;
+                this.iPrev = $img.length-1;
+            }else{
+                this.index++;
+                this.iPrev = this.index - 1;
+            }
+            this.btnMove(1);
         }
     }
 
-    // 菜单
+    /**
+     * 菜单效果
+     * 1.鼠标进入/离开触发每个菜单项的显示/隐藏效果
+     */
     class Menu{
         constructor(){
             this.amenuLi = document.querySelectorAll(".menu-l ul li");
@@ -203,6 +197,7 @@
             this.addEvent();
         }
 
+        // 绑定事件
         addEvent(){
             for(let i=0;i<this.amenuLi.length;i++){
                 this.amenuLi[i].index = i;
@@ -210,7 +205,6 @@
                     for(let j=0;j<this.amenuLi.length;j++){
                        this.amenuLi[j].style.backgroundColor = "#fdfcfb";
                        this.adiv[j].style.display = "none";
-
                     }
                     this.amenuLi[i].style.backgroundColor = "#fff";
                     this.adiv[this.amenuLi[i].index].style.display = "block";
@@ -226,8 +220,11 @@
         }
     }
 
-
-    // 楼层
+    /**
+     * 楼层
+     * 1.自身定位效果
+     * 2.内部各链接点击定位效果
+     */
     class Floor{
         constructor(){
             this.floor = document.getElementById("floor");
@@ -235,8 +232,6 @@
             this.floor_position = document.querySelectorAll(".floor_position");
             this.top = [];
             this.rxdp = document.getElementById("rxdp");
-            console.log(this.ceng);
-            console.log(this.floor_position)
             this.addEvent();
         }
 
@@ -272,12 +267,17 @@
         }
     }
 
-    //头部登录
+    /**
+     * 头部登录
+     * 1.未登录状态取消购物车入口和注销入口
+     * 2.登录状态新增注销入口、用名名显示和购物车入口，取消登录入口
+     */
     class Index{
         constructor(){
             this.notLogin = document.querySelector(".not-login")
             this.loginS = document.querySelector(".login-success")
             this.user = document.querySelector(".login-success span")
+            this.notLogin1 = document.querySelector(".not-login1");
 
             this.logout = document.querySelector(".logout");
 
@@ -292,14 +292,14 @@
                 for(var i=0;i<this.usermsg.length;i++){
                     // console.log(this.usermsg.length)
                     // 找到要注销的账号
-                    console.log(this.user)
-                    console.log(this.name == this.usermsg[i].user)
                     if(this.name == this.usermsg[i].user){
                         // 修改当前账号的登录状态为0
                         this.usermsg[i].onoff = 0;
                         // 隐藏登录成功的信息
                         this.notLogin.style.display = "block";
                         this.loginS.style.display = "none";
+                        console.log(this.notLogin1);
+                        this.notLogin1.style.display = "none";
                         // 再将用户的信息设置回去，实现真正的注销
                         localStorage.setItem("usermsg",JSON.stringify(this.usermsg))
                         // 结束
@@ -322,6 +322,7 @@
                     // 显示登录成功的信息
                     this.notLogin.style.display = "none";
                     this.loginS.style.display = "block";
+                    this.notLogin1.style.display = "block";
                     //设置当前用户名
                     this.user.innerHTML = this.usermsg[i].user;
                     // 保存当前用户名，用作注销
@@ -334,10 +335,6 @@
     }
 
     new Index;
-
-
-
-
     new Top;
     new BannerTop;
     new Menu;

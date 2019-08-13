@@ -1,10 +1,16 @@
 ;(function(){
-
+    /**
+     * 商品列表效果
+     * 1.ajax请求json数据并渲染页面
+     * 2.无数据时，显示暂无商品出售友情提示
+     * 3.点击添加购物车按钮可以添加对应的商品信息到Cookie中
+     */
     class shopList{
         constructor(){
             this.box = document.querySelector("#box");          // 最外框
             this.url = "http://localhost/store/phone_list/data/phone_more.json";      // 商品数据接口
             this.row = document.querySelector(".row");
+            this.row_children = this.row.children;
             this.load();
             this.addEvent();
         }
@@ -29,6 +35,12 @@
                     this.setCookie();
                 }
             })
+
+            for(let i=0;i<this.row_children.length;i++){
+                this.row_children[i].addEventListener("click",()=>{
+                    this.setCookie();
+                })
+            }
         }
 
         // 设置Cookie
@@ -40,11 +52,12 @@
                     num:1
                 })
             }else{
-                var i = 0;
-                var onoff = this.goods.some((val,index)=>{
+                let i = 0;
+                let onoff = this.goods.some((val,index)=>{
                     i = index;
                     return val.id == this.id;
-                })
+                });
+
                 if(onoff){
                     // 老商品:
                     // 修改对应对象的num属性
@@ -81,38 +94,89 @@
                             <img src="${this.res[i].url}" class="w-75"/>
                             <h6>${this.res[i].name}</h6>
                             <span class="btn-block">${this.res[i].price}</span>
-                            <button type="button" class="btn btn-lg btn-info">添加购物车</button>
+                            <button type="button" class="btn btn-lg btn-info addcar">添加购物车</button>
                         </div>`
             }
             this.row.innerHTML = str;
         }
     }
 
+    /**
+     * 头部登录
+     * 1.登录状态取消购物车入口和登录入口
+     * 2.登录状态新增注销入口、用名名显示和购物车入口
+     */
+    class Index{
+        constructor(){
+            this.notLogin = document.querySelector(".not-login")
+            this.loginS = document.querySelector(".login-success")
+            this.user = document.querySelector(".login-success span")
+            this.notLogin1 = document.querySelector(".not-login1");
+
+            this.addcar = document.querySelectorAll(".addcar");
+
+            this.logout = document.querySelector(".logout");
+
+
+            // 获取所有的用户信息
+            this.init();
+            // 添加注销事件
+            this.addEvent();
+        }
+        addEvent(){
+            // 点击注销时
+            this.logout.onclick = ()=>{
+                for(var i=0;i<this.usermsg.length;i++){
+                    // console.log(this.usermsg.length)
+                    // 找到要注销的账号
+                    if(this.name == this.usermsg[i].user){
+                        // 修改当前账号的登录状态为0
+                        this.usermsg[i].onoff = 0;
+                        // 隐藏登录成功的信息
+                        this.notLogin.style.display = "block";
+                        this.loginS.style.display = "none";
+                        console.log(this.notLogin1);
+                        this.notLogin1.style.display = "none";
+                        // for(let i=0;i<this.addcar.length;i++){
+                        //     console.log(this.addcar[i]);
+                        //     this.addcar[i].style.display = "none";
+                        // }
+                        // 再将用户的信息设置回去，实现真正的注销
+                        localStorage.setItem("usermsg",JSON.stringify(this.usermsg))
+                        // 结束
+                        return ;
+                    }
+                }
+            }
+        }
+        init(){
+            // 获取所有的用户信息直接转换，方便使用
+            this.usermsg = localStorage.getItem("usermsg") ? JSON.parse(localStorage.getItem("usermsg")) : [];
+            // 开始验证
+            this.check()
+        }
+        check(){
+            // 拿到所有的信息
+            for(var i=0;i<this.usermsg.length;i++){
+                // 判断哪个用户的状态为已登录
+                if(this.usermsg[i].onoff == 1){
+                    // 显示登录成功的信息
+                    this.notLogin.style.display = "none";
+                    this.loginS.style.display = "block";
+                    this.notLogin1.style.display = "block";
+                    //设置当前用户名
+                    this.user.innerHTML = this.usermsg[i].user;
+                    // 保存当前用户名，用作注销
+                    this.name = this.usermsg[i].user;
+
+                    return;
+                }
+            }
+        }
+    }
+
+    new Index;
     new shopList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 })();

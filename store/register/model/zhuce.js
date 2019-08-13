@@ -1,4 +1,10 @@
 define(function(){
+    /**
+     * 表单验证
+     * 1.密码长度验证
+     * 2.密码重复验证
+     * 3.手机号长度验证
+     */
     function yanzheng(){
         /*提示框*/
         let oTishi = document.getElementById("tishi");
@@ -32,11 +38,10 @@ define(function(){
                 state = 0;
             }
         };
-    // 手机号验证
+        // 手机号验证
         let oPhone = document.querySelector("#phone .phone input");
         oPhone.onblur = function(){
             let phoneValue = oPhone.value;
-            // 假设@前数字为6~18位，后字母或数字为2~3位,后缀为com或cn
             let reg = /^[\d]{11}$/;
             if(!reg.test(phoneValue)){
                 oTishi.innerHTML = "* 手机号不合法，请重新输入！";
@@ -49,6 +54,12 @@ define(function(){
         };
     }
 
+    /**
+     *选项卡效果
+     * 1.点击不同的标题，显示不同的注册区域
+     * 2.点击输入框时，取消默认文本提示
+     * 3.输入框失去焦点时，默认提示文本显示
+     */
     function Tabs(){
         let aform = document.querySelectorAll("form");
         let aa = document.querySelectorAll(".change");
@@ -73,16 +84,17 @@ define(function(){
                     e.target.value = "";
                 }
             });
-
         }
 
         for(let i=0;i<input.length;i++){
             input[i].addEventListener("blur",()=>{
-                switch(i){
-                    case 0:input[i].value = "请输入手机号";break;
-                    case 1:input[i].value = "请输入短信验证码";break;
-                    case 2:input[i].value = "请输入密码";break;
-                    case 3:input[i].value = "请再次输入密码";break;
+                if(input[i].value == ""){
+                    switch(i){
+                        case 0:input[i].value = "请输入手机号";break;
+                        case 1:input[i].value = "请输入短信验证码";break;
+                        case 2:input[i].value = "请输入密码";break;
+                        case 3:input[i].value = "请再次输入密码";break;
+                    }
                 }
             })
         }

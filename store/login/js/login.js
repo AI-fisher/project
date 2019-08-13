@@ -1,5 +1,10 @@
 ;(function(){
-    //登录时验证身份
+    /**
+     * 登录效果
+     * 1.登录时验证身份
+     * 2.成功3秒后跳转到首页
+     * 3.失败显示友情提示
+     */
     class Login{
         constructor(){
             this.user = document.querySelector("#username");
@@ -7,23 +12,23 @@
             this.btn = document.querySelector("#login");
             this.msg = document.querySelector("#msg");
 
-            this.init()
+            this.addEvent()
         }
-        init(){
+        // 绑定事件
+        addEvent(){
             this.btn.onclick = ()=>{
                 // 点击时先获取localStorage
-                console.log(1)
                 this.getUserMsg()
             }
         }
+        // 获取localStorage中的用户信息并转换
         getUserMsg(){
-            // 获取的同时直接转换，方便实用
             this.usermsg = localStorage.getItem("usermsg") ? JSON.parse(localStorage.getItem("usermsg")) : [];
-            // 开始验证
             this.check()
         }
+        // 验证
         check(){
-            // 遍历所有的用户名
+            // 所有用户名
             for(let i=0;i<this.usermsg.length;i++){
                 // 用户和密码是否匹配
                 if(this.usermsg[i].user == this.user.value && this.usermsg[i].pass1 == this.pass.value){
@@ -47,14 +52,18 @@
         }
     }
 
-    // 取消默认信息
+    /**
+     * 取消默认信息效果
+     * 1.点击输入框时，输入框中的默认提示文本消失
+     * 2.对应的输入框失去焦点时，默认提示文本显示
+     */
     class Cancel{
         constructor(){
             this.minBC = document.querySelector(".center-r-c");
             this.input = document.querySelectorAll(".center-r-c .cancel");
             this.addEvent();
         }
-
+        // 绑定事件
         addEvent(){
             this.minBC.addEventListener("click",function(e){
                 if(e.target.className == "cancel"){
@@ -64,47 +73,21 @@
 
             for(let i=0;i<this.input.length;i++){
                 this.input[i].addEventListener("blur",()=>{
-                    switch(i){
-                        case 0:this.input[i].value = "手机号/邮件地址/华为号";break;
-                        case 1:this.input[i].value = "密码";break;
+                    if(this.input[i].value == ""){
+                        switch(i){
+                            case 0:this.input[i].value = "手机号/邮件地址/华为号";break;
+                            case 1:this.input[i].value = "密码";break;
+                        }
                     }
                 })
             }
-
 
         }
     }
 
 
-
-
-
     new Cancel;
     new Login;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 })();

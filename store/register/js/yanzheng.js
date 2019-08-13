@@ -1,4 +1,8 @@
-//注册时判断存储
+/**
+ * 注册时效果
+ * 1.首次直接将信息存入localStorage中
+ * 2.非首次先判断是否存在该用户，存在则显示友情提示，不存在则存入localStorage中，并实现3秒后自动跳转到登陆页面
+ */
 class Register{
     constructor(){
         this.user = document.querySelector("#phone .phone input");
@@ -9,17 +13,19 @@ class Register{
 
         this.addEvent()
     }
+    // 绑定事件
     addEvent(){
         this.btns.onclick = ()=>{
             // 判断是否为首次注册
             this.getUserMsg()
         }
     }
+    // 获取localStorage中的用户信息
     getUserMsg(){
         this.usermsg = localStorage.getItem("usermsg");
-        // 开始判断是否是第一次
         this.setUserMsg()
     }
+    // 首次注册和非首次注册的处理
     setUserMsg(){
         // [{user:"admin",pass:admin,onoff:0},{user:"root",pass:root,onoff:0}]
         // 首次直接获取
@@ -56,7 +62,6 @@ class Register{
                 location.href = "http://localhost/store/login/login.html";
             }, 3000);
         }
-
         localStorage.setItem("usermsg",JSON.stringify(this.usermsg))
     }
 }

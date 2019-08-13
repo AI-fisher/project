@@ -10,6 +10,10 @@
 #top .top-main .top-main-r{float:right;}
 #top .top-main ul.show{position:relative;}
 #top .top-main ul.show li{float:left;}
+#top .top-main ul.show li:nth-child(1) .not-login{display: block;}
+#top .top-main ul.show li:nth-child(1) .login-success{display:none;font:12px/3 ""; color:#a4a4a4;}
+#top .top-main ul.show li:nth-child(1) .login-success span{font:12px/3 ""; color:#ff0000;}
+#top .top-main ul.show li:nth-child(1) .login-success a{border-left:none;}
 /*#top .top-main ul.show li:hover a{color:#ca151d;}*/
 #top .top-main ul.show li a{font:12px/3 ""; color:#a4a4a4;padding:0 8px;border-left:1px solid #9b9b9b;}
 #top .top-main ul.show li a.first{border-left:0;padding-left:0;}
@@ -17,6 +21,8 @@
 /*#top .top-main ul.show li.more a{padding-right:20px;background:url("../images/xiasanjiao.png") no-repeat right;background-size:14px;}*/
 #top .top-main ul.show li.more a.car{background:url("../images/car.png") no-repeat 5px;background-size:14px;padding-right:0;padding-left:25px;}
 /*#top .top-main ul.show li.more:hover{color:#ca151d;background-color:#fff;}*/
+
+.not-login1{display:none;}
 
 /*隐藏区*/
 #top .top-main ul.show .jingcai{position:absolute;left:460px;top:40px;z-index:999;width:119px;background:#fff;border-radius: 15px;display:none;}
@@ -59,6 +65,8 @@
 #header .left .logo a{}
 #header .left .logo img{width:205px;height:36px;display:block;}
 #header h2{font:700 20px/2 "";float:left;}
+#header h3{border-radius:10px;background:#ff0000;font:700 14px/2 "";float:left;margin-left:20px;padding:5px 10px;}
+#header h3 a{color:#fff;}
 #header .right form{width:320px;height:30px;border-top-left-radius:20px;border-bottom-left-radius:20px;overflow: hidden;}
 #header .right form input{float:left;background:#f0f0f0;}
 #header .right form input.search{width:285px;height:30px;}
